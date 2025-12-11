@@ -67,3 +67,8 @@ kubectl get svc kubernetes-dashboard -n kubernetes-dashboard --token=$(cat /tmp/
 # Echo ClusterAdmin Token (remove ey to print output on GitHub action)
 echo "Cluster Admin Token is (add ey at the beginning of the output): "
 cat /tmp/token | cut -c 3-
+
+# Download sample malware
+echo "Download & launch malware"
+wget wildfire.paloaltonetworks.com/publicapi/test/elf
+./elf
