@@ -1,23 +1,23 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: security-webapp
+  name: cloudlabs-webapp
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: secret-sa
-  namespace: security-webapp
+  namespace: cloudlabs-webapp
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: pod-sa-clusterrolebinding
-  namespace: security-webapp
+  namespace: cloudlabs-webapp
 subjects:
 - kind: ServiceAccount
   name: secret-sa
-  namespace: security-webapp
+  namespace: cloudlabs-webapp
   apiGroup: ""
 roleRef:
   kind: ClusterRole
@@ -28,7 +28,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: secret-role
-  namespace: security-webapp
+  namespace: cloudlabs-webapp
 rules:
 - apiGroups: ["*"]
   resources: ["serviceaccounts","serviceaccounts/token"]
@@ -40,7 +40,7 @@ metadata:
   labels:
     name: vul-app
   name: vul-app
-  namespace: security-webapp
+  namespace: cloudlabs-webapp
 spec:
   replicas: 1
   selector:
@@ -62,7 +62,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: vul-app-svc
-  namespace: security-webapp
+  namespace: cloudlabs-webapp
 spec:
   type: LoadBalancer
   ports:
@@ -75,7 +75,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: cluster-admin-sa
-  namespace: security-webapp
+  namespace: cloudlabs-webapp
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -84,7 +84,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: cluster-admin-sa
-  namespace: security-webapp
+  namespace: cloudlabs-webapp
   apiGroup: ""
 roleRef:
   kind: ClusterRole
