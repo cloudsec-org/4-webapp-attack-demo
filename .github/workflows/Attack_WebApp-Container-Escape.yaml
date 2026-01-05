@@ -1,4 +1,4 @@
-name: 1_Container-Escape-K8s_Run_Attack
+name: Attack_WebApp-Container-Escape
 
 on:
   # push:

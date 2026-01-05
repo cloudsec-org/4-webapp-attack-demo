@@ -1,4 +1,4 @@
-name: 0_Scan_WebApp
+name: External_Exposure-Scan-WebApp
 
 on:
   # push:
